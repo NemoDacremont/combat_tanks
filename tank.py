@@ -1,4 +1,5 @@
 
+
 class Tank:
     def __init__(x: int, y: int, v: int, pv: int, team: int):
         self.x = x
