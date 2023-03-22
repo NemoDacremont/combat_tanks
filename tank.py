@@ -1,41 +1,46 @@
+#!/bin/env python3
 
+from entite import Entite
+from couleurs_ansi import *
 
-class Tank:
-    def __init__(x: int, y: int, v: int, pv: int, team: int):
-        self.x = x
-        self.y = y
-        self.v = v
+C_TANK = FOND_BLEU + " " + NORMAL
+
+class Tank(Entite):
+    def __init__(self, x: int = 1, y: int = 1, vx: float = 1, vy: float = 1, pv: int = 1, team: int = 1):
+        super().__init__(x, y, vx, vy)
         self.pv = pv
         self.team = team
 
-        self.direction = 0
 
+    def bouge(self):
+        super().bouge()
+        
 
-    def avancer():
+    def tirer(self):
         pass
 
 
-    def tirer():
+    def orienterCanon(self, angle: float):
         pass
 
 
-    def orienterCanon(angle: float):
+    def localiserDegats(self):
         pass
 
 
-    def localiserDegats():
+    def regarder(self):
         pass
 
 
-    def regarder():
+    def recoitDonnees(self):
         pass
 
 
-    def recoitDonnees():
-        pass
+    def update(self):
+        super().update()
 
 
-    def update():
-        pass
-
-    
+    def affiche(self, support):
+        support[self.x][self.y] = C_TANK
+        
+        
