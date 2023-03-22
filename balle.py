@@ -5,13 +5,14 @@ from entite import Entite
 
 # Modules généraux
 from couleurs_ansi import *
-
-C_BALLE = FOND_ROUGE + " " + NORMAL
+from constantes import *
+from utiles import *
+from dessin import *
 
 inf = float("inf")
 
 class Balle(Entite):
-    def __init__(self, x: int = 10, y: int = 10, vx: float = 1, vy: float = 1, degat: float = 10, portee: float = inf):
+    def __init__(self, x: int = 10, y: int = 10, vx: float = 0.2, vy: float = 0.3, degat: float = 10, portee: float = inf):
         super().__init__(x, y, vx, vy)
         self.degat = degat
         self.portee = portee
@@ -23,6 +24,13 @@ class Balle(Entite):
     def update(self):
         super().update()
 
-    def affiche(self, support: list):
-        support[self.x][self.y] = C_BALLE
-  
+    def affiche(self, cr):
+        dessine_balle(self,cr)
+
+
+
+###################################################################
+
+if __name__ == '__main__':
+    print("Ce programme n'est pas destiné à être exécuté...")
+        
